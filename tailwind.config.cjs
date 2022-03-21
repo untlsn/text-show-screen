@@ -3,5 +3,15 @@ module.exports = {
     include: ['**/*.{vue,css}'],
     exclude: ['node_modules', '.git'],
   },
-  theme: {},
+  theme: {
+    extend: {
+      colors: {
+        coffie: {
+          black: '#1A1615',
+          brown: '#523019',
+          cream: '#E3C69C',
+        },
+      },
+    },
+  },
 };

@@ -30,6 +30,7 @@ export default defineConfig({
         'vue-router',
         '@vueuse/head',
         '@vueuse/core',
+        'pinia',
       ],
       dts: 'src/auto-imports.d.ts',
     }),
@@ -88,13 +89,5 @@ export default defineConfig({
     exclude: [
       'vue-demi',
     ],
-  },
-
-  test: {
-    include: ['test/**/*.test.ts'],
-    environment: 'jsdom',
-    deps: {
-      inline: ['@vue', '@vueuse', 'vue-demi'],
-    },
   },
 });

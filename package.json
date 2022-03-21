@@ -16,6 +16,7 @@
     "@vueuse/core": "^8.0.1",
     "@vueuse/head": "^0.7.5",
     "autoprefixer": "^10.4.4",
+    "nanoid": "^3.3.1",
     "nprogress": "^0.2.0",
     "pinia": "^2.0.12",
     "postcss": "^8.4.12",
