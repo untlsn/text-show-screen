@@ -6,6 +6,11 @@ const id = ref(`input-${nanoid(4)}`);
 defineProps<{
   type?: 'text' | 'textarea'
   label: string
+  modelValue: string
+}>();
+
+defineEmits<{
+  (emit: 'update:modelValue', value: string): void
 }>();
 
 const uniProps = {
@@ -24,11 +29,15 @@ const uniProps = {
       v-if="type == 'textarea'"
       v-bind="uniProps"
       class="h-30 w-60 resize-none"
+      :value="modelValue"
+      @input="(ev: any) => $emit('update:modelValue', ev.target.value)"
     />
     <input
       v-else
       :type="type"
       v-bind="uniProps"
+      :value="modelValue"
+      @input="(ev: any) => $emit('update:modelValue', ev.target.value)"
     >
   </div>
 </template>
