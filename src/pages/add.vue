@@ -1,5 +1,6 @@
 <script lang="ts" setup>
   import useStore from '~/store/useStore';
+  import TextTile from '~/components/molecules/TextTile.vue';
 
   const text = reactive({
     title: '',
@@ -11,8 +12,8 @@
 
 
 <template>
-  <div class="flex flex-col items-center justify-center min-h-screen space-y-12">
-    <form 
+  <div class="flex flex-col items-center justify-center min-h-screen">
+    <form
       class="w-100 p-10 rounded-xl bg-white bg-opacity-2 orb space-y-6"
       @submit.prevent="store.addText(text)"
     >
@@ -24,31 +25,30 @@
         </Button>
       </div>
     </form>
-    <div class="flex gap-4 h-44">
-      <article 
-        v-for="it in store.lastTexts"
-        :key="it.id"
-        class="w-75 p-10 rounded-xl bg-white bg-opacity-2 orb space-y-6"
-        :style="({ '--shadow-size': '50px' } as any)"
-      >
-        <h1 class="h-5 w-full overflow-hidden overflow-ellipsis">
-          {{ it.title.slice(0, 20) }}
-          <span v-if="it.text.length > 50">...</span>
-        </h1>
-        <p class="h-13 w-full overflow-hidden">
-          {{ it.text.slice(0, 50) }}
-          <span v-if="it.text.length > 50">...</span>
-        </p>
-      </article>
+    <div v-if="store.lastTexts.length">
+      <p class="py-6">
+        Ostatnio dodane:
+      </p>
+      <div class="flex gap-4">
+        <TextTile 
+          v-for="(textProps, i) in store.lastTexts" 
+          :key="textProps.id"
+          v-bind="textProps"
+          :style="{ '--left': i == 0 ? '115%' : i == 2 ? '-115%' : '0' }"
+          class="move-x"
+        />
+      </div>
+      <p class="text-right pr-12 pt-4">
+        <RouterLink to="/textes">
+          Więcej...
+        </RouterLink>
+      </p>
     </div>
   </div>
 </template>
 
 
-<style lang="scss">
-body {
-  @apply bg-coffie-black text-coffie-cream;
-}
+<style lang="scss" scoped>
 .orb {
   --shadow-size: 80px;
   @apply relative overflow-hidden;
@@ -57,5 +57,23 @@ body {
     box-shadow: 0 0 var(--shadow-size) var(--shadow-size) #523019;
     @apply absolute right-0 top-20 w-1 h-1 rounded-full bg-coffie-brown;
   }
+}
+@keyframes move-x-anim {
+  from {
+    transform: translateX(var(--left));
+    opacity: 0;
+  }
+  70% {
+    transform: translateX(0);
+    opacity: .5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.move-x {
+  --left: 0;
+  animation: move-x-anim 1s;
 }
 </style>

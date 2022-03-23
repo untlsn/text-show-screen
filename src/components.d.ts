@@ -6,6 +6,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     Button: typeof import('./components/atoms/Button.vue')['default']
     TextField: typeof import('./components/atoms/TextField.vue')['default']
+    TextTile: typeof import('./components/molecules/TextTile.vue')['default']
   }
 }
 

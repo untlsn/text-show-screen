@@ -7,9 +7,15 @@ useHead({
   meta: [
     { name: 'description', content: 'Opinionated Vite Starter Template' },
   ],
-})
+});
 </script>
 
 <template>
-  <router-view />
+  <RouterView />
 </template>
+
+<style>
+body {
+  @apply bg-coffie-black text-coffie-cream;
+}
+</style>
