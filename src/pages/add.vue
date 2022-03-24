@@ -1,15 +1,14 @@
 <script lang="ts" setup>
-  import useStore from '~/store/useStore';
-  import TextTile from '~/components/molecules/TextTile.vue';
+import useStore from '~/store/useStore';
+import TextTile from '~/components/molecules/TextTile.vue';
 
-  const text = reactive({
-    title: '',
-    text: '',
-  });
+const text = reactive({
+  title: '',
+  text: '',
+});
 
-  const store = useStore();
+const store = useStore();
 </script>
-
 
 <template>
   <div class="flex flex-col items-center justify-center min-h-screen">
@@ -20,40 +19,37 @@
       <TextField v-model="text.title" label="Tytuł" />
       <TextField v-model="text.text" label="Wklej tekst" type="textarea" />
       <div class="text-right pr-15">
-        <Button>
-          Dodaj
-        </Button>
+        <Button>Dodaj</Button>
       </div>
     </form>
     <div v-if="store.lastTexts.length">
-      <p class="py-6">
-        Ostatnio dodane:
-      </p>
+      <p class="py-6">Ostatnio dodane:</p>
       <div class="flex gap-4">
-        <TextTile 
-          v-for="(textProps, i) in store.lastTexts" 
+        <RouterLink
+          v-for="(textProps, i) in store.lastTexts"
           :key="textProps.id"
-          v-bind="textProps"
-          :style="{ '--left': i == 0 ? '115%' : i == 2 ? '-115%' : '0' }"
-          class="move-x"
-        />
+          :to="`/textes?preselect=${textProps.id}`"
+        >
+          <TextTile
+            v-bind="textProps"
+            :style="{ '--left': i == 0 ? '115%' : i == 2 ? '-115%' : '0' }"
+            class="move-x"
+          />
+        </RouterLink>
       </div>
       <p class="text-right pr-12 pt-4">
-        <RouterLink to="/textes">
-          Więcej...
-        </RouterLink>
+        <RouterLink to="/textes">Więcej...</RouterLink>
       </p>
     </div>
   </div>
 </template>
-
 
 <style lang="scss" scoped>
 .orb {
   --shadow-size: 80px;
   @apply relative overflow-hidden;
   &::before {
-    content: '';
+    content: "";
     box-shadow: 0 0 var(--shadow-size) var(--shadow-size) #523019;
     @apply absolute right-0 top-20 w-1 h-1 rounded-full bg-coffie-brown;
   }
@@ -65,7 +61,7 @@
   }
   70% {
     transform: translateX(0);
-    opacity: .5;
+    opacity: 0.5;
   }
   to {
     opacity: 1;

@@ -1,13 +1,23 @@
 <script setup lang="ts">
-// https://github.com/vueuse/head
-// you can use this to manipulate the document head in any components,
-// they will be rendered correctly in the html results with vite-ssg
+import useStore from './store/useStore';
+
 useHead({
   title: 'Vitesse',
   meta: [
     { name: 'description', content: 'Opinionated Vite Starter Template' },
   ],
 });
+
+const store = useStore();
+if (localStorage) {
+  store.$patch(JSON.parse(localStorage.getItem(store.$id)!));
+  store.$subscribe(() => {
+    localStorage.setItem(store.$id, JSON.stringify({
+      textes: store.textes,
+    }));
+  });
+}
+
 </script>
 
 <template>
