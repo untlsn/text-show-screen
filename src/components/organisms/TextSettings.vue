@@ -5,6 +5,10 @@ const props = defineProps<{
   id?: string;
 }>();
 
+const emit = defineEmits<{
+  (type: 'update:id', value: ''): void
+}>();
+
 const store = useStore();
 
 const text = computed(() => store.textes[props.id!]);
@@ -21,6 +25,9 @@ const remove = () => {
     setTimeout(() => {
       bools.remove = false;
     }, 3000);
+  } else {
+    delete store.textes[props.id!];
+    emit('update:id', '');
   }
 };
 </script>

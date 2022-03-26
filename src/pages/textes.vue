@@ -29,7 +29,7 @@ const noTextes = computed(() => !store.textesArray.length);
         @click="selected = textProps.id"
       />
     </div>
-    <TextSettings :id="selected" />
+    <TextSettings v-model:id="selected" />
   </div>
 </template>
 
