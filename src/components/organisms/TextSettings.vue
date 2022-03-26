@@ -35,16 +35,16 @@ const remove = () => {
       <TextyArea v-model:value="text.text" v-model:enabled="bools.text" />
     </div>
     <div class="text-right space-x-4">
-      <Button @click="bools.title = !bools.title">
+      <button class="btn" @click="bools.title = !bools.title">
         Zmień tytuł
-      </Button>
-      <Button @click="bools.text = !bools.text">
+      </button>
+      <button class="btn" @click="bools.text = !bools.text">
         Zmień text
-      </Button>
-      <Button @click="remove">
+      </button>
+      <button class="btn" @click="remove">
         <span v-if="!bools.remove">Usuń</span>
         <span v-else>Na pewno?</span>
-      </Button>
+      </button>
     </div>
   </div>
 </template>

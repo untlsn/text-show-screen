@@ -11,11 +11,6 @@ defineEmits<{
 
 const inputRef = ref<HTMLInputElement>();
 
-const num = {
-  a: 5,
-  b: 6,
-};
-
 watchEffect(() => {
   if (props.enabled) {
     setTimeout(() => {

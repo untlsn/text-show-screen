@@ -19,9 +19,7 @@ rules:
   no-unused-vars: off
   func-call-spacing: off
   no-spaced-func: off
-  indent: 
-    - error
-    - 2
+  vue/multi-word-component-names: off
   vue/max-attributes-per-line: 
     - warn
     - singleline:

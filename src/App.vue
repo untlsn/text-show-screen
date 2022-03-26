@@ -25,6 +25,11 @@ if (localStorage) {
 </template>
 
 <style>
+.btn {
+  @apply border-1 border-coffie-cream py-1 px-3 rounded-lg bg-white bg-opacity-5;
+  @apply hover:bg-opacity-15;
+}
+
 body {
   @apply bg-coffie-black text-coffie-cream;
 }

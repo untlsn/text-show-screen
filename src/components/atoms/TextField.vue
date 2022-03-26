@@ -15,17 +15,16 @@ defineEmits<{
 
 const uniProps = {
   id: id.value,
-  class: 'border-1 shadow px-1 rounded bg-white bg-opacity-5 border-white border-opacity-20'+
-    ' hover:bg-opacity-15'+
-    ' focus:bg-opacity-10',
+  class: 'border-1 shadow px-1 rounded bg-white bg-opacity-5 border-white border-opacity-20'
+    + ' hover:bg-opacity-15'
+    + ' focus:bg-opacity-10',
 };
 </script>
-
 
 <template>
   <div>
     <label :for="id" class="block">{{ label }}:</label>
-    <textarea 
+    <textarea
       v-if="type == 'textarea'"
       v-bind="uniProps"
       class="h-30 w-60 resize-none"

@@ -15,7 +15,8 @@ const useStore = defineStore('store', {
     textes: {} as Record<string, Text>,
   }),
   getters: {
-    lastTexts: (store) => Object.values(store.textes).sort((a, b) => b.create - a.create).slice(0, 3),
+    lastTexts: (store) => Object.values(store.textes)
+      .sort((a, b) => b.create - a.create).slice(0, 3),
     textesArray: (store) => Object.values(store.textes),
   },
   actions: {

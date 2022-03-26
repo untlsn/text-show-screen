@@ -5,7 +5,6 @@ defineProps<{
 }>();
 </script>
 
-
 <template>
   <article
     class="w-75 p-10 rounded-xl bg-white bg-opacity-2 orb space-y-6"

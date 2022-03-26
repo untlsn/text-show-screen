@@ -19,11 +19,15 @@ const store = useStore();
       <TextField v-model="text.title" label="Tytuł" />
       <TextField v-model="text.text" label="Wklej tekst" type="textarea" />
       <div class="text-right pr-15">
-        <Button>Dodaj</Button>
+        <button class="btn">
+          Dodaj
+        </button>
       </div>
     </form>
     <div v-if="store.lastTexts.length">
-      <p class="py-6">Ostatnio dodane:</p>
+      <p class="py-6">
+        Ostatnio dodane:
+      </p>
       <div class="flex gap-4">
         <RouterLink
           v-for="(textProps, i) in store.lastTexts"
@@ -38,7 +42,9 @@ const store = useStore();
         </RouterLink>
       </div>
       <p class="text-right pr-12 pt-4">
-        <RouterLink to="/textes">Więcej...</RouterLink>
+        <RouterLink to="/textes">
+          Więcej...
+        </RouterLink>
       </p>
     </div>
   </div>
