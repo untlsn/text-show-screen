@@ -9,7 +9,11 @@ const noTextes = computed(() => !store.textesArray.length);
 </script>
 
 <template>
-  <div class="items-center justify-center" :class="{ flex: !noTextes }">
+  <div
+    class="items-center justify-center"
+    :class="{ flex: !noTextes }"
+    @click="selected = ''"
+  >
     <div v-if="noTextes" class="p-12">
       <a href="/add">
         <span>Nie posiadasz zadnych tekstów?</span>
@@ -26,7 +30,7 @@ const noTextes = computed(() => !store.textesArray.length);
           '--left': `-${(i % 4) * 110}%`,
         }"
         class="transition-transform tile hover:(cursor-pointer)"
-        @click="selected = textProps.id"
+        @click.stop="selected = textProps.id"
       />
     </div>
     <TextSettings v-model:id="selected" />
