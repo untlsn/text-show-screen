@@ -4,21 +4,24 @@ env:
 extends:
   - plugin:vue/vue3-recommended
   - airbnb-base
-  - plugin:prettier/recommended
 parserOptions:
   ecmaVersion: latest
   parser: '@typescript-eslint/parser'
   sourceType: module
 plugins:
+  - only-warn
   - vue
   - '@typescript-eslint'
-  - prettier
 rules: 
   import/no-unresolved: off
   import/extensions: off
   no-undef: off
   no-unused-vars: off
-  prettier/prettier: off
+  func-call-spacing: off
+  no-spaced-func: off
+  indent: 
+    - error
+    - 2
   vue/max-attributes-per-line: 
     - warn
     - singleline:

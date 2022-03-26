@@ -11,6 +11,11 @@ defineEmits<{
 
 const inputRef = ref<HTMLInputElement>();
 
+const num = {
+  a: 5,
+  b: 6,
+};
+
 watchEffect(() => {
   if (props.enabled) {
     setTimeout(() => {
@@ -28,5 +33,5 @@ watchEffect(() => {
     class="bg-transparent text-2xl font-bold mb-6 rounded focus:underline"
     @keydown.enter="$emit('update:enabled', !enabled)"
     @input="(ev: any) => $emit('update:value', ev.target.value)"
-  />
+  >
 </template>
