@@ -8,6 +8,7 @@ interface TextRoot {
 interface Text extends TextRoot {
   id: string,
   create: number,
+  shortcut?: string,
 }
 
 const useStore = defineStore('store', {

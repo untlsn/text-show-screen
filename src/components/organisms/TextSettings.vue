@@ -33,7 +33,7 @@ const remove = () => {
 </script>
 
 <template>
-  <div v-if="id" class="fixed bottom-0 left-0 w-screen bg-coffie-gray shadow p-8">
+  <div v-if="id" class="fixed top-0 right-0 h-screen bg-coffie-gray shadow p-8">
     <TextyInput v-model:value="text.title" v-model:enabled="bools.title" />
     <div>
       <p class="font-bold text-lg">
@@ -41,7 +41,13 @@ const remove = () => {
       </p>
       <TextyArea v-model:value="text.text" v-model:enabled="bools.text" />
     </div>
-    <div class="text-right space-x-4">
+    <div>
+      <p class="font-bold text-lg">
+        Skrót klawiszowy:
+      </p>
+      <KeyInput v-model="text.shortcut" />
+    </div>
+    <div class="text-right space-x-4 fixed bottom-8 right-8">
       <button class="btn" @click="bools.title = !bools.title">
         Zmień tytuł
       </button>
