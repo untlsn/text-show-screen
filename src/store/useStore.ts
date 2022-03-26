@@ -19,6 +19,7 @@ const useStore = defineStore('store', {
     lastTexts: (store) => Object.values(store.textes)
       .sort((a, b) => b.create - a.create).slice(0, 3),
     textesArray: (store) => Object.values(store.textes),
+    includes: (store) => (id: string) => Object.keys(store.textes).includes(id),
   },
   actions: {
     addText(text: TextRoot) {

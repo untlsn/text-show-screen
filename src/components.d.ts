@@ -6,6 +6,8 @@ declare module 'vue' {
   export interface GlobalComponents {
     Button: typeof import('./components/atoms/Button.vue')['default']
     KeyInput: typeof import('./components/atoms/KeyInput.vue')['default']
+    ModalProvider: typeof import('./components/templates/ModalProvider.vue')['default']
+    RemoveConfirm: typeof import('./components/modals/RemoveConfirm.vue')['default']
     TextField: typeof import('./components/atoms/TextField.vue')['default']
     TextSettings: typeof import('./components/organisms/TextSettings.vue')['default']
     TextTile: typeof import('./components/molecules/TextTile.vue')['default']

@@ -3,22 +3,33 @@ import useStore from '~/store/useStore';
 
 const store = useStore();
 const route = useRoute();
+const preselect = route.query.preselect as string;
 
-const selected = ref<string>(route.query.preselect as string);
+const selected = ref<string>(store.includes(preselect) ? preselect : '');
 const noTextes = computed(() => !store.textesArray.length);
+
+const removeModalOpened = ref(false);
 </script>
 
 <template>
   <div
-    class="items-center justify-center"
+    class="items-start min-h-screen"
     :class="{ flex: !noTextes }"
     @click="selected = ''"
   >
-    <div v-if="noTextes" class="p-12">
-      <a href="/add">
-        <span>Nie posiadasz zadnych tekstów?</span>
+    <div class="absolute left-12" :class="noTextes ? 'top-16' : 'top-8'">
+      <a v-if="noTextes" href="/add">
+        <span>Nie posiadasz zadnych tekstów? </span>
         <span class="underline font-bold">Dodaj!</span>
       </a>
+      <div v-else class="text-xl space-x-4">
+        <button class="btn">
+          Dodaj kolejne
+        </button>
+        <button class="btn" @click="removeModalOpened = true">
+          Usuń wszystkie!
+        </button>
+      </div>
     </div>
     <div class="grid p-24 gap-8 grid-cols-4">
       <TextTile
@@ -35,6 +46,11 @@ const noTextes = computed(() => !store.textesArray.length);
     </div>
     <TextSettings v-model:id="selected" />
   </div>
+  <RemoveConfirm
+    v-if="removeModalOpened"
+    @close="removeModalOpened = false"
+    @remove="store.textes = {}"
+  />
 </template>
 
 <style lang="scss">
