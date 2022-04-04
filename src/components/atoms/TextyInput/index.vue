@@ -2,6 +2,7 @@
 const props = defineProps<{
   value: string;
   enabled: boolean;
+  type?: 'text'|'textarea'
 }>();
 
 defineEmits<{

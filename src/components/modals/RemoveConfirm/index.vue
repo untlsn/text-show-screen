@@ -12,7 +12,7 @@ const textSame = computed(() => randomText == confirmText.value);
 </script>
 
 <template>
-  <div class="bg-black bg-opacity-30 fixed-full-center">
+  <div class="bg-black bg-opacity-30 fixed-full-center text-white">
     <div class="p-10 rounded-xl bg-coffie-gray orb space-y-4">
       <div>
         <p>Jesteś pewien, że chcesz usunąć wszystko?</p>

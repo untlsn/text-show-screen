@@ -8,12 +8,14 @@ import Components from 'unplugin-vue-components/vite';
 import AutoImport from 'unplugin-auto-import/vite';
 import { VitePWA } from 'vite-plugin-pwa';
 import Inspect from 'vite-plugin-inspect';
-import WindiCSS from 'vite-plugin-windicss';
+import CSS from 'unocss/vite';
+import vueJsx from '@vitejs/plugin-vue-jsx';
 
 export default defineConfig({
   resolve: {
     alias: {
       '~/': `${path.resolve(__dirname, 'src')}/`,
+      $css: '~/styles/bundle.js',
     },
   },
   plugins: [
@@ -24,6 +26,7 @@ export default defineConfig({
       extensions: ['vue'],
     }),
     Layouts(),
+    vueJsx(),
     AutoImport({
       imports: [
         'vue',
@@ -39,7 +42,7 @@ export default defineConfig({
       include: [/\.vue$/, /\.vue\?vue/],
       dts: 'src/components.d.ts',
     }),
-    WindiCSS(),
+    CSS(),
     Inspect(),
 
     VitePWA({

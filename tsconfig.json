@@ -5,6 +5,8 @@
     "target": "es2016",
     "lib": ["DOM", "ESNext"],
     "strict": true,
+    "jsx": "preserve",
+    "noImplicitAny": false,
     "esModuleInterop": true,
     "incremental": false,
     "skipLibCheck": true,
@@ -16,10 +18,12 @@
     "types": [
       "vite/client",
       "vite-plugin-pages/client",
-      "vite-plugin-vue-layouts/client"
+      "vite-plugin-vue-layouts/client",
+      "cypress"
     ],
     "paths": {
-      "~/*": ["src/*"]
+      "~/*": ["src/*"],
+      "$css": ["src/styles/bundle.js"]
     }
   },
   "exclude": ["dist", "node_modules", "cypress"]

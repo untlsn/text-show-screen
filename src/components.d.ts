@@ -4,15 +4,12 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
-    Button: typeof import('./components/atoms/Button.vue')['default']
-    KeyInput: typeof import('./components/atoms/KeyInput.vue')['default']
-    ModalProvider: typeof import('./components/templates/ModalProvider.vue')['default']
-    RemoveConfirm: typeof import('./components/modals/RemoveConfirm.vue')['default']
-    TextField: typeof import('./components/atoms/TextField.vue')['default']
+    KeyInput: typeof import('./components/atoms/KeyInput/index.vue')['default']
+    RemoveConfirm: typeof import('./components/modals/RemoveConfirm/index.vue')['default']
+    TextField: typeof import('./components/atoms/TextField/index.vue')['default']
     TextSettings: typeof import('./components/organisms/TextSettings.vue')['default']
-    TextTile: typeof import('./components/molecules/TextTile.vue')['default']
-    TextyArea: typeof import('./components/atoms/TextyArea.vue')['default']
-    TextyInput: typeof import('./components/atoms/TextyInput.vue')['default']
+    TextTile: typeof import('./components/molecules/TextTile/index.vue')['default']
+    TextyInput: typeof import('./components/atoms/TextyInput/index.vue')['default']
   }
 }
 

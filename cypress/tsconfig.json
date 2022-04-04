@@ -8,5 +8,5 @@
   "exclude": [],
   "include": [
     "**/*.ts"
-  ]
+, "plugins/index.js"  ]
 }
